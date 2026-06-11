@@ -9,9 +9,7 @@
 #include <chrono>
 #include <set>
 
-// ==========================================
 // 1. DATA PARSING & STRUCTURE DEFINITIONS
-// ==========================================
 
 struct Athlete {
     std::string athleteID;
@@ -33,9 +31,7 @@ struct TransactionRequest {
     std::string detail;
 };
 
-// ==========================================
 // 2. LOGISTICS ENGINE CLASS
-// ==========================================
 
 class TrackMasterEngine {
 private:
@@ -86,9 +82,9 @@ public:
                 }
 
                 if (!isValid) {
-                    std::cout << "  ❌ Sanitization Rejection: Invalid profile pattern \"" << req.detail << "\"\n";
+                    std::cout << "  Sanitization Rejection: Invalid profile pattern \"" << req.detail << "\"\n";
                 } else {
-                    std::cout << "  ✅ Data Sanitized: Updated Athlete " << req.athleteID << " profile sequence to " << req.detail << "\n";
+                    std::cout << "  Data Sanitized: Updated Athlete " << req.athleteID << " profile sequence to " << req.detail << "\n";
                     if (athleteRegistry.find(req.athleteID) != athleteRegistry.end()) {
                         athleteRegistry[req.detail] = athleteRegistry[req.athleteID];
                         athleteRegistry[req.detail].athleteID = req.detail;
